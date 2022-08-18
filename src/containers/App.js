@@ -2,6 +2,7 @@ import React , {Component} from 'react';
 import CardList from '../components/CardList';
 import Scroll from '../components/Scroll';
 import SearchBox from '../components/SearchBox';
+import ErrorBoundry from '../components/ErrorBoundry';
 import '../App.css';
 
 // the state is what describes our app, these are the things that can change!
@@ -51,7 +52,9 @@ class App extends Component
                     <h1 className='f1'>MyRobotFriends!</h1>
                     <SearchBox searchChange={this.typeChange} />
                     <Scroll>
-                        <CardList robots={filteredRobots} />    
+                        <ErrorBoundry>
+                            <CardList robots={filteredRobots} />
+                        </ErrorBoundry>    
                     </Scroll>
                 </div>
             );
